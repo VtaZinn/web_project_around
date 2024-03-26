@@ -1,0 +1,33 @@
+@media only screen and (max-width: 320px){ 
+  .pages {
+    width: 100%;
+  }
+
+  .main-page {
+    flex-direction: column;
+  }
+
+  .main-page__content {
+    flex-direction: column;
+  }
+
+  .main-page__content-text {
+    text-align: center;
+  }
+
+  .main-page__text-img h2{
+    font-size: 22px;
+    line-height: 27px;  
+  }
+
+  .main-page__img-EditButton {
+    width: 18px;
+    height: 18px;
+  }
+
+  .main-page__img-AddButton {
+    width: 282px;
+    height: 55px;
+    margin-top: 36px;
+  }
+}

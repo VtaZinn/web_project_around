@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./pages/index.css" media="screen" />
+  <title>Document</title>
+</head>
+<body>
+  <div class="pages">
+    <header>
+      <section>
+        <div class="section-header">
+          <img src="./images/Vector.png" alt="logo Around">
+        </div>
+        <div class="section-header__line"></div>
+      </section>
+    </header>
+    <main>
+      <section class="main-page">
+        <div class="main-page__content">
+          <div class="main-page__photo-avtar">
+            <img src="./images/Avatar.png" alt="Foto de perfil">
+          </div>
+          <div>
+            <div class="main-page__content-text"> 
+              <div class="main-page__text-img">
+                <h2 id="name"> Jacques Cousteau </h2>
+                <button class="button" id="ButtonEdit">
+                  <img src="./images/EditButton.png" class="main-page__img-EditButton">
+                </button>
+              </div>
+                <p id="aboutMe">Explorador</p>
+            </div>
+          </div>
+        </div>
+        <div class="main-page__content-img-AddButton">
+          <img src="./images/AddButton.png" class="main-page__img-AddButton">
+        </div>
+      </section>
+      <section class="elements">
+        <div class="elements__content">
+          <div class="elements__content-container">
+            <img src="./images/kirill.jpg" class="elements__content-img">
+          </div>
+          <div class="elements__content-text">
+            <h3>Vale de Yosemite</h3>
+            <button class="elements__button-like">
+        
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <p>© 2024 Around The U.S.</p>
+    </footer>
+  </div>
+  <div class="opacity" id="modal">
+    <div class="content-modal">
+      <button class="buttonClose" id="buttonClose">
+        <img src="./images/CloseIcon.png"/>
+      </button>
+      <div class="modal">
+        <h3>Editar pefil</h3>
+        <input type="text" placeholder="Nome" class="modal__input" id="inputName">
+        <input type="text" placeholder="Sobre Mim" class="modal__input-About" id="inputAboutMe"/>
+        <button class="modal__button-save" id="buttonSave"> Salvar </button>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="./script/index.js"></script>
+</html>

@@ -1,0 +1,46 @@
+body {
+  background-color: black;
+  margin: 0px;
+  color: white;
+  font-family: "Inter";
+}
+
+h2 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../fonts/web/Inter-Regular.woff2");
+}
+
+@font-face {
+  font-family: "Inter Black";
+  src: url("../fonts/web/Inter-Black.woff2");
+}
+
+
+.pages {
+  width: 80%;
+  margin: auto;
+}
+
+.section-header{
+  width: 30%;
+  margin-top: 45px;
+}
+
+.section-header__line {
+  width: 100%;
+  border-bottom: 1px solid white;
+  margin-top: 41px;
+}
+
