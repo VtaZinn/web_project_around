@@ -23,9 +23,15 @@ function closeModal() {
 }
 
 function save() {
-  nameUser.innerText = inputName.value;
-  aboutMe.innerText = inputAboutMe.value;
-  closeModal();
+  if(inputName.value != "" && inputAboutMe.value != "") {
+    nameUser.innerText = inputName.value;
+    aboutMe.innerText = inputAboutMe.value;
+    closeModal();
+  } else {
+    alert("Preencha todos os campos!");
+  }
 }
+
+
 
 
