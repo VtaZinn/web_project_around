@@ -36,72 +36,12 @@
             </div>
           </div>
         </div>
-        <div class="main-page__content-img-AddButton">
+        <div class="main-page__content-img-AddButton" id="ButtonAddCard">
           <img src="./images/AddButton.png" class="main-page__img-AddButton" alt="Botão Adicionar">
         </div>
       </section>
       <section class="elements">
-        <div class="elements__content">
-          <div class="elements__content-container">
-            <img src="./images/kirill.jpg" class="elements__content-img" alt="Imagem de um Floresta">
-          </div>
-          <div class="elements__content-text">
-            <h3>Vale de Yosemite</h3>
-            <button class="elements__button-like">
-            </button>
-          </div>
-        </div>
-        <div class="elements__content">
-          <div class="elements__content-container">
-            <img src="./images/kirill.jpg" class="elements__content-img" alt="Imagem de um Floresta">
-          </div>
-          <div class="elements__content-text">
-            <h3>Vale de Yosemite</h3>
-            <button class="elements__button-like">
-            </button>
-          </div>
-        </div>
-        <div class="elements__content">
-          <div class="elements__content-container">
-            <img src="./images/kirill.jpg" class="elements__content-img" alt="Imagem de um Floresta">
-          </div>
-          <div class="elements__content-text">
-            <h3>Vale de Yosemite</h3>
-            <button class="elements__button-like">
-            </button>
-          </div>
-        </div>
-        <div class="elements__content">
-          <div class="elements__content-container">
-            <img src="./images/kirill.jpg" class="elements__content-img" alt="Imagem de um Floresta">
-          </div>
-          <div class="elements__content-text">
-            <h3>Vale de Yosemite</h3>
-            <button class="elements__button-like">
-            </button>
-          </div>
-        </div>
-        <div class="elements__content">
-          <div class="elements__content-container">
-            <img src="./images/kirill.jpg" class="elements__content-img" alt="Imagem de um Floresta">
-          </div>
-          <div class="elements__content-text">
-            <h3>Vale de Yosemite</h3>
-            <button class="elements__button-like">
-            </button>
-          </div>
-        </div>
-        <div class="elements__content">
-          <div class="elements__content-container">
-            <img src="./images/kirill.jpg" class="elements__content-img" alt="Imagem de um Floresta">
-          </div>
-          <div class="elements__content-text">
-            <h3>Vale de Yosemite</h3>
-            <button class="elements__button-like">
-            </button>
-          </div>
-        </div>
-
+        <!-- As coisas estão no javascript -->
       </section>
     </main>
     <footer class="footer">
@@ -123,6 +63,28 @@
       </div>
     </div>
   </div>
+
+  <!-- INSERIR FOTO -->
+  <div class="opacity" id="modalAddCard">
+    <div class="content-modal">
+      <button class="buttonClose" id="buttonCloseCard">
+        <img src="./images/CloseIcon.png" alt="Botão Fechar"/>
+      </button>
+      <div class="modal">
+        <form >
+          <h3>Novo Local</h3>
+          <input type="text" placeholder="Titulo" class="modal__input" id="inputCardTitle">
+          <input type="text" placeholder="Link da imagem" class="modal__input-About" id="inputLinkImage"/>
+        </form>
+        <button class="modal__button-save" id="buttonSaveCard"> Salvar </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="openImage">
+    
+  </div>
+
   <script src="./script/index.js"></script>
 </body>
 

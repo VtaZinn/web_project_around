@@ -68,3 +68,21 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.buttonCloseImage {
+  background-image: url(../images/CloseIcon.png);
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+}
+
+.opacityImg {
+  background-color: rgba(0, 0, 0, 0.603);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+}
