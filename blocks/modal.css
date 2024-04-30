@@ -20,6 +20,11 @@
   left: 37%;
 }
 
+.content-modal img{
+  max-height: 40vh;
+  max-width: 75vw;
+}
+
 .modal {
   background-color: white;
   color: black;

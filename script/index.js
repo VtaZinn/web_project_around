@@ -1,27 +1,27 @@
-let buttonEdit = document.getElementById("ButtonEdit");
-let buttonClose = document.getElementById("buttonClose");
-let buttonSave = document.getElementById("buttonSave");
+const buttonEdit = document.getElementById("ButtonEdit");
+const buttonClose = document.getElementById("buttonClose");
+const buttonSave = document.getElementById("buttonSave");
 buttonEdit.addEventListener("click", openModal);
 buttonClose.addEventListener("click", closeModal);
 buttonSave.addEventListener("click", save);
 
-let buttonAddCard = document.getElementById("ButtonAddCard");
+const buttonAddCard = document.getElementById("ButtonAddCard");
 buttonAddCard.addEventListener("click",openModalAddCard);
-let buttonCloseCard = document.getElementById("buttonCloseCard");
+const buttonCloseCard = document.getElementById("buttonCloseCard");
 buttonCloseCard.addEventListener("click", closeModalCard);
-let buttonSaveCard = document.getElementById("buttonSaveCard");
+const buttonSaveCard = document.getElementById("buttonSaveCard");
 buttonSaveCard.addEventListener("click", saveCard);
-let inputTitleCard = document.getElementById("inputCardTitle");
-let inputLinkImage= document.getElementById("inputLinkImage");
+const inputTitleCard = document.getElementById("inputCardTitle");
+const inputLinkImage= document.getElementById("inputLinkImage");
 
 
-let nameUser = document.getElementById("name");
-let aboutMe = document.getElementById("aboutMe");
-let inputName = document.getElementById("inputName");
-let inputAboutMe = document.getElementById("inputAboutMe");
+const nameUser = document.getElementById("name");
+const aboutMe = document.getElementById("aboutMe");
+const inputName = document.getElementById("inputName");
+const inputAboutMe = document.getElementById("inputAboutMe");
 
-let modal = document.getElementById("modal");
-let modalAddCard = document.getElementById("modalAddCard");
+const modal = document.getElementById("modal");
+const modalAddCard = document.getElementById("modalAddCard");
 
 function openModal() {
   inputName.value = nameUser.innerText;
@@ -75,7 +75,8 @@ function addCard (name, link) {
   const insertImage = document.createElement("img");
   insertImage.classList.add("elements__content-img");
   insertImage.src = link;
-  insertImage.addEventListener("click", () => openImage(link));
+  insertImage.alt = name;
+  insertImage.addEventListener("click", () => openImage(link, name));
 
   const deleteCard = document.createElement("div");
   deleteCard.classList.add("deleteCard")
@@ -139,10 +140,16 @@ function removeCard(elements) {
   elements.remove();
 }
 
-function openImage (link) {
-  console.log("to aqui");
+function openImage (link, name) {
   const opacityImg = document.createElement("div");
   opacityImg.classList.add("opacityImg");
+
+  const titleModal = document.createElement("div");
+  titleModal.classList.add("titleModal");
+
+  const nameModal = document.createElement("h3");
+  nameModal.classList.add("nameModal");
+  nameModal.textContent = name;
 
   const closeImage = document.createElement("div");
   closeImage.classList.add("buttonCloseImage");
@@ -154,12 +161,16 @@ function openImage (link) {
   const contentImage = document.createElement("img");
   contentImage.src = link;
 
+    
+  titleModal.append(nameModal);
   contentModal.append(contentImage);
+  contentModal.append(titleModal);
   opacityImg.append(contentModal);
   contentModal.append(closeImage);
   
   const openImage = document.getElementById("openImage");
   openImage.append(opacityImg);
+
 }
 
 function closeImg(opacityImg) {
