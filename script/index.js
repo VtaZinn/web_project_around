@@ -42,10 +42,10 @@ modal.addEventListener("click" , function(evt){
 function valid() {
   if(inputName.value != "" && inputAboutMe.value != "") {
     buttonSave.disabled = false;
-    buttonSave.classList.remove("btn__disabled");
+    buttonSave.classList.remove("modal__btn-disabled");
   }else {
     buttonSave.disabled = true;
-    buttonSave.classList.add("btn__disabled");
+    buttonSave.classList.add("modal__btn-disabled");
 
     const textP = document.getElementById("Alert-text");
 
@@ -63,10 +63,10 @@ function valid() {
 function validCard() {
   if(inputTitleCard.value != "" && inputLinkImage.value != "") {
     buttonSaveCard.disabled = false;
-    buttonSaveCard.classList.remove("btn__disabled");
+    buttonSaveCard.classList.remove("modal__btn-disabled");
   }else {
     buttonSaveCard.disabled = true;
-    buttonSaveCard.classList.add("btn__disabled");
+    buttonSaveCard.classList.add("modal__btn-disabled");
 
     const localName = document.getElementById("localName");
 

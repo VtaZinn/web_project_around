@@ -96,7 +96,7 @@
   color: red;
 }
 
-.btn__disabled{
+.modal__btn-disabled{
   background-color: white;
   color: #d3d3d3;
   border: 1px solid #d3d3d3;
