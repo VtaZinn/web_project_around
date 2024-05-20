@@ -33,13 +33,66 @@ function closeModal() {
   modal.classList.remove("popup_opened");
 }
 
+modal.addEventListener("click" , function(evt){
+  if(evt.target==modal){
+    closeModal();
+  }
+});
+
+function valid() {
+  if(inputName.value != "" && inputAboutMe.value != "") {
+    buttonSave.disabled = false;
+    buttonSave.classList.remove("btn__disabled");
+  }else {
+    buttonSave.disabled = true;
+    buttonSave.classList.add("btn__disabled");
+
+    const textP = document.getElementById("Alert-text");
+
+    if (inputName.value === "") {
+      textP.textContent = "Preencha este campo";
+    }
+
+    const alertAbout = document.getElementById("AlertAbout");
+    if (inputAboutMe.value === "") {
+      alertAbout.textContent = "Preencha este campo";
+    }
+  }
+}
+
+function validCard() {
+  if(inputTitleCard.value != "" && inputLinkImage.value != "") {
+    buttonSaveCard.disabled = false;
+    buttonSaveCard.classList.remove("btn__disabled");
+  }else {
+    buttonSaveCard.disabled = true;
+    buttonSaveCard.classList.add("btn__disabled");
+
+    const localName = document.getElementById("localName");
+
+    if (inputCardTitle.value === "") {
+      localName.textContent = "Preencha este campo";
+    }
+
+    const linkImage = document.getElementById("linkImage");
+    if (inputLinkImage.value === "") {
+      linkImage.textContent = "Por favor, insira um endereço web.";
+    }
+
+  }
+}
+
+inputName.addEventListener("keyup", valid);
+inputAboutMe.addEventListener("keyup", valid);
+
+inputTitleCard.addEventListener("keyup", validCard);
+inputLinkImage.addEventListener("keyup", validCard);
+
 function save() {
   if(inputName.value != "" && inputAboutMe.value != "") {
     nameUser.innerText = inputName.value;
     aboutMe.innerText = inputAboutMe.value;
     closeModal();
-  } else {
-    alert("Preencha todos os campos!");
   }
 }
 
@@ -53,12 +106,18 @@ function closeModalCard() {
   modalAddCard.classList.remove("popup_opened");
 }
 
+modalAddCard.addEventListener("click" , function(evt){
+  if(evt.target==modalAddCard){
+    closeModalCard();
+  }
+});
+
+
+
 function saveCard() {
   if(inputTitleCard.value != "" && inputLinkImage.value != "") {
     addCard(inputTitleCard.value, inputLinkImage.value);
     closeModalCard();
-  } else {
-    alert("Preencha todos os campos!");
   }
 }
 
@@ -176,3 +235,6 @@ function openImage (link, name) {
 function closeImg(opacityImg) {
   opacityImg.remove();
 }
+
+
+

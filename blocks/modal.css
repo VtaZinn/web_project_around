@@ -91,3 +91,13 @@
   width: 100%;
   height: 100vh;
 }
+
+.Alert-text {
+  color: red;
+}
+
+.btn__disabled{
+  background-color: white;
+  color: #d3d3d3 ;
+  border: 1px solid #d3d3d3;
+}

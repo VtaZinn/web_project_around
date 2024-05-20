@@ -56,10 +56,12 @@
       <div class="modal">
         <form >
           <h3>Editar pefil</h3>
-          <input type="text" placeholder="Nome" class="modal__input" id="inputName">
-          <input type="text" placeholder="Sobre Mim" class="modal__input-About" id="inputAboutMe"/>
+          <input type="text" placeholder="Nome" class="modal__input" id="inputName" required>
+          <p id="Alert-text" class="Alert-text"></p>
+          <input type="text" placeholder="Sobre Mim" class="modal__input-About" id="inputAboutMe" required/>
+          <p id="AlertAbout" class="Alert-text"></p>
         </form>
-        <button class="modal__button-save" id="buttonSave"> Salvar </button>
+        <button type="submit" class="modal__button-save" id="buttonSave"> Salvar </button>
       </div>
     </div>
   </div>
@@ -73,10 +75,12 @@
       <div class="modal">
         <form >
           <h3>Novo Local</h3>
-          <input type="text" placeholder="Titulo" class="modal__input" id="inputCardTitle">
-          <input type="text" placeholder="Link da imagem" class="modal__input-About" id="inputLinkImage"/>
+          <input type="text" placeholder="Titulo" class="modal__input" id="inputCardTitle" required>
+          <p id="localName" class="Alert-text"></p>
+          <input type="text" placeholder="Link da imagem" class="modal__input-About" id="inputLinkImage" required/>
+          <p id="linkImage" class="Alert-text"></p>
         </form>
-        <button class="modal__button-save" id="buttonSaveCard"> Salvar </button>
+        <button class="modal__button-save btn__disabled" id="buttonSaveCard" disabled> Salvar </button>
       </div>
     </div>
   </div>
