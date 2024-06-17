@@ -6,7 +6,7 @@
   <meta name="author" content="Victor Augusto">
   <meta name="keywords" content="HTML, CSS, JavaScript">
   <link rel="stylesheet" type="text/css" href="./pages/index.css" media="screen" />
-  <title>Document</title>
+  <title>Triple</title>
 </head>
 <body>
   <div class="pages">
@@ -40,8 +40,20 @@
           <img src="./images/AddButton.png" class="main-page__img-AddButton" alt="Botão Adicionar">
         </div>
       </section>
+      
       <section class="elements">
-        <!-- As coisas estão no javascript -->
+        <template class="card">
+          <div class="elements__content">
+            <div class="elements__content-container">
+              <img src="./images/kirill.jpg" class="elements__content-img">
+            </div>
+            <div class="elements__content-text">
+              <h3>template</h3>
+              <button class="elements__button-like">
+              </button>
+            </div>
+          </div>
+        </template>
       </section>
     </main>
     <footer class="footer">
@@ -54,7 +66,7 @@
         <img src="./images/CloseIcon.png" alt="Botão Fechar"/>
       </button>
       <div class="modal">
-        <form >
+        <form class="formEdit">
           <h3>Editar pefil</h3>
           <input type="text" placeholder="Nome" class="modal__input" id="inputName" required>
           <p id="Alert-text" class="Alert-text"></p>
@@ -73,7 +85,7 @@
         <img src="./images/CloseIcon.png" alt="Botão Fechar"/>
       </button>
       <div class="modal">
-        <form >
+        <form class="formCard">
           <h3>Novo Local</h3>
           <input type="text" placeholder="Titulo" class="modal__input" id="inputCardTitle" required>
           <p id="localName" class="Alert-text"></p>
@@ -89,7 +101,7 @@
     
   </div>
 
-  <script src="./script/index.js"></script>
+  <script type="module" src="./script/index.js"></script>
 </body>
 
 </html>
