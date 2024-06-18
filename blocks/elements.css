@@ -5,6 +5,7 @@
   max-width: 880px;
   margin-top: 50px;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .elements__content{

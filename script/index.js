@@ -7,14 +7,13 @@ const buttonClose = document.getElementById("buttonClose");
 const buttonSave = document.getElementById("buttonSave");
 buttonEdit.addEventListener("click", openModal);
 buttonClose.addEventListener("click", closeModal);
-buttonSave.addEventListener("click", save);
+
 
 const buttonAddCard = document.getElementById("ButtonAddCard");
 buttonAddCard.addEventListener("click",openModalAddCard);
 const buttonCloseCard = document.getElementById("buttonCloseCard");
 buttonCloseCard.addEventListener("click", closeModalCard);
 const buttonSaveCard = document.getElementById("buttonSaveCard");
-buttonSaveCard.addEventListener("click", saveCard);
 const inputTitleCard = document.getElementById("inputCardTitle");
 const inputLinkImage= document.getElementById("inputLinkImage");
 
@@ -26,7 +25,8 @@ const inputAboutMe = document.getElementById("inputAboutMe");
 
 
 
-function save() {
+function save(evt) {
+  evt.preventDefault();
   if(inputName.value != "" && inputAboutMe.value != "") {
     nameUser.innerText = inputName.value;
     aboutMe.innerText = inputAboutMe.value;
@@ -34,7 +34,8 @@ function save() {
   }
 }
 
-function saveCard() {
+function saveCard(evt) { 
+  evt.preventDefault();
   if(inputTitleCard.value != "" && inputLinkImage.value != "") {
     addCard(inputTitleCard.value, inputLinkImage.value);
     closeModalCard();
@@ -90,7 +91,9 @@ function removeCard(elements) {
 }
 
 const formEdit = document.querySelector(".formEdit");
+formEdit.addEventListener("submit", save);
 const formCard = document.querySelector(".formCard");
+formCard.addEventListener("submit", saveCard);
 
 const edit = new FormValidator({
   input1: "#inputName",
