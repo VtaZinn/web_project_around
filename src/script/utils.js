@@ -31,8 +31,9 @@ export function openImage (link, name) {
   
   }
 
-  export function closeImg(opacityImg) {
-    opacityImg.remove();
+  export function closeImg() {
+      const opacity = document.querySelector(".opacityImg");
+      opacity.remove();
   }
   
 
@@ -40,42 +41,3 @@ export function openImage (link, name) {
 export function likeCard(evt) {
   evt.target.classList.toggle("elements__button-likeBlack");
 }
-
-
-const modal = document.getElementById("modal");
-const modalAddCard = document.getElementById("modalAddCard");
-const nameUser = document.getElementById("name");
-const aboutMe = document.getElementById("aboutMe");
-const inputName = document.getElementById("inputName");
-const inputAboutMe = document.getElementById("inputAboutMe");
-
-export function openModal() {
-  inputName.value = nameUser.innerText;
-  inputAboutMe.value = aboutMe.innerText;
-  modal.classList.add("popup_opened");
-}
-
-export function closeModal() {
-  modal.classList.remove("popup_opened");
-}
-
-modal.addEventListener("click" , function(evt){
-  if(evt.target==modal){
-    closeModal();
-  }
-});
-
-export function openModalAddCard() {
-  modalAddCard.classList.add("popup_opened");
-}
-
-export function closeModalCard() {
-  modalAddCard.classList.remove("popup_opened");
-}
-
-modalAddCard.addEventListener("click" , function(evt){
-  if(evt.target==modalAddCard){
-    closeModalCard();
-  }
-});
-

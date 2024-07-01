@@ -1,44 +1,68 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js"
-import { openModal, openModalAddCard, closeModal, closeModalCard} from "./utils.js";
+import Section from "./Section.js";
+import Popup from "./Popup.js";
+import PopupWithForm from "./PopupWithForm.js";
+import UserInfo from "./UserInfo.js";
+import "../styles/index.css";
 
-const buttonEdit = document.getElementById("ButtonEdit");
+
 const buttonClose = document.getElementById("buttonClose");
-const buttonSave = document.getElementById("buttonSave");
-buttonEdit.addEventListener("click", openModal);
-buttonClose.addEventListener("click", closeModal);
-
+buttonClose.addEventListener("click", function(){
+  const popup = new PopupWithForm("#modal", save);
+  popup.closeModal();
+})
 
 const buttonAddCard = document.getElementById("ButtonAddCard");
-buttonAddCard.addEventListener("click",openModalAddCard);
+buttonAddCard.addEventListener("click", function(){
+  const popup = new PopupWithForm("#modalAddCard", saveCard);
+  popup.setEventListeners();
+  popup.open();
+})
+
 const buttonCloseCard = document.getElementById("buttonCloseCard");
-buttonCloseCard.addEventListener("click", closeModalCard);
-const buttonSaveCard = document.getElementById("buttonSaveCard");
+buttonCloseCard.addEventListener("click", function(){
+  const popup = new PopupWithForm("#modalAddCard", saveCard);
+  popup.closeModal();
+})
+
 const inputTitleCard = document.getElementById("inputCardTitle");
 const inputLinkImage= document.getElementById("inputLinkImage");
-
 
 const nameUser = document.getElementById("name");
 const aboutMe = document.getElementById("aboutMe");
 const inputName = document.getElementById("inputName");
 const inputAboutMe = document.getElementById("inputAboutMe");
 
-
-
 function save(evt) {
   evt.preventDefault();
   if(inputName.value != "" && inputAboutMe.value != "") {
-    nameUser.innerText = inputName.value;
-    aboutMe.innerText = inputAboutMe.value;
-    closeModal();
+    const user = new UserInfo({nameSelector: "#name", workSelector: "#aboutMe"})
+    user.setUserInfo(inputName.value,inputAboutMe.value);
+    const popup = new PopupWithForm("#modal", save);
+    popup.closeModal();
   }
 }
+
+const buttonEdit = document.getElementById("ButtonEdit");
+buttonEdit.addEventListener("click", function(){
+  const popup = new PopupWithForm("#modal", save);
+
+  const user = new UserInfo({nameSelector: "#name", workSelector: "#aboutMe"})
+  const userInfo = user.getUserInfo()
+  inputName.value = userInfo.name;
+  inputAboutMe.value = userInfo.work;
+
+  popup.setEventListeners();
+  popup.open();
+})
 
 function saveCard(evt) { 
   evt.preventDefault();
   if(inputTitleCard.value != "" && inputLinkImage.value != "") {
     addCard(inputTitleCard.value, inputLinkImage.value);
-    closeModalCard();
+    const popup = new Popup("#modalAddCard");
+    popup.close();
   }
 }
 
@@ -78,17 +102,17 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach((item) => {
-  const card = new Card(item, ".card")
-  const newCard = card.generateCard();
 
-  const elements = document.querySelector(".elements");
-  elements.prepend(newCard);
-});
 
-function removeCard(elements) {
-  elements.remove();
-}
+const cardList = new Section({
+  items: initialCards,
+  renderer: (item) => {
+    const card = new Card(item, ".card");
+    const newCard = card.generateCard();
+    cardList.addItem(newCard);
+  }
+}, ".elements");
+
 
 const formEdit = document.querySelector(".formEdit");
 formEdit.addEventListener("submit", save);
@@ -112,6 +136,8 @@ const card = new FormValidator({
   warning2: "#linkImage",
 },formCard)
 card.enableValidation();
+
+cardList.renderer();
 
 
 

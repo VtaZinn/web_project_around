@@ -19,12 +19,12 @@ p {
 
 @font-face {
   font-family: "Inter";
-  src: url("../fonts/web/Inter-Regular.woff2");
+  src: url("../../fonts/web/Inter-Regular.woff2");
 }
 
 @font-face {
   font-family: "Inter Black";
-  src: url("../fonts/web/Inter-Black.woff2");
+  src: url("../../fonts/web/Inter-Black.woff2");
 }
 
 

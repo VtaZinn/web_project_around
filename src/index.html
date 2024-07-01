@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Victor Augusto">
   <meta name="keywords" content="HTML, CSS, JavaScript">
-  <link rel="stylesheet" type="text/css" href="./pages/index.css" media="screen" />
+
   <title>Triple</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
     <header>
       <section>
         <div class="section-header">
-          <img src="./images/Vector.png" alt="logo Around">
+          <img src="<%=require('./images/Vector.png')%>" alt="logo Around">
         </div>
         <div class="header-line"></div>
       </section>
@@ -22,14 +22,14 @@
       <section class="main-page">
         <div class="main-page__content">
           <div class="main-page__photo-avtar">
-            <img src="./images/Avatar.png" alt="Foto de perfil">
+            <img src="<%=require('./images/Avatar.png')%>" alt="Foto de perfil">
           </div>
           <div>
             <div class="main-page__content-text"> 
               <div class="main-page__text-img">
                 <h2 id="name"> Jacques Cousteau </h2>
                 <button class="button" id="ButtonEdit">
-                  <img src="./images/EditButton.png" class="main-page__img-EditButton" alt="Botão Editar">
+                  <img src="<%=require('./images/EditButton.png')%>" class="main-page__img-EditButton" alt="Botão Editar">
                 </button>
               </div>
                 <p id="aboutMe">Explorador</p>
@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="main-page__content-img-AddButton" id="ButtonAddCard">
-          <img src="./images/AddButton.png" class="main-page__img-AddButton" alt="Botão Adicionar">
+          <img src="<%=require('./images/AddButton.png')%>" class="main-page__img-AddButton" alt="Botão Adicionar">
         </div>
       </section>
       
@@ -45,7 +45,7 @@
         <template class="card">
           <div class="elements__content">
             <div class="elements__content-container">
-              <img src="./images/kirill.jpg" class="elements__content-img">
+              <img src="<%=require('./images/kirill.jpg')%>" class="elements__content-img">
             </div>
             <div class="elements__content-text">
               <h3>template</h3>
@@ -63,14 +63,14 @@
   <div class="opacity" id="modal">
     <div class="content-modal">
       <button class="buttonClose" id="buttonClose">
-        <img src="./images/CloseIcon.png" alt="Botão Fechar"/>
+        <img src="<%=require('./images/CloseIcon.png')%>" alt="Botão Fechar"/>
       </button>
       <div class="modal">
-        <form class="formEdit">
+        <form class="formEdit form">
           <h3>Editar pefil</h3>
-          <input type="text" placeholder="Nome" class="modal__input" id="inputName" required>
+          <input type="text" placeholder="Nome" class="modal__input formField" id="inputName" required>
           <p id="Alert-text" class="Alert-text"></p>
-          <input type="text" placeholder="Sobre Mim" class="modal__input-About" id="inputAboutMe" required/>
+          <input type="text" placeholder="Sobre Mim" class="modal__input-About formField" id="inputAboutMe" required/>
           <p id="AlertAbout" class="Alert-text"></p>
           <button type="submit" class="modal__button-save" id="buttonSave"> Salvar </button>
         </form>
@@ -82,10 +82,10 @@
   <div class="opacity" id="modalAddCard">
     <div class="content-modal">
       <button class="buttonClose" id="buttonCloseCard">
-        <img src="./images/CloseIcon.png" alt="Botão Fechar"/>
+        <img src="<%=require('./images/CloseIcon.png')%>" alt="Botão Fechar"/>
       </button>
       <div class="modal">
-        <form class="formCard">
+        <form class="formCard form">
           <h3>Novo Local</h3>
           <input type="text" placeholder="Titulo" class="modal__input" id="inputCardTitle" required>
           <p id="localName" class="Alert-text"></p>

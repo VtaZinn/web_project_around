@@ -1,3 +1,4 @@
+import PopupWithImage from "./PopupWithImage.js";
 import {openImage, likeCard} from "./utils.js";
 
 export default class Card {
@@ -30,10 +31,13 @@ export default class Card {
     _setEventListener() {
         const image = this._element.querySelector(".elements__content-img");
         image.addEventListener("click", () => {
-            openImage( this._link, this._name);
+            const popup = new PopupWithImage(".opacityImg", {link: this._link, name: this._name});
+            popup.setEventListeners();
+            popup.open();
           });
 
         const buttonLike = this._element.querySelector(".elements__button-like")
         buttonLike.addEventListener("click", likeCard);
     }
+
 }
