@@ -1,3 +1,4 @@
+/* O robo de validação da plataforma não deixa mexer no normalize.css */
 @import url("../vendor/normalize.css");
 @import url("../blocks/header.css");
 @import url("../blocks/main.css");
