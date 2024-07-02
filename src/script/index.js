@@ -29,8 +29,6 @@ buttonCloseCard.addEventListener("click", function(){
 const inputTitleCard = document.getElementById("inputCardTitle");
 const inputLinkImage= document.getElementById("inputLinkImage");
 
-const nameUser = document.getElementById("name");
-const aboutMe = document.getElementById("aboutMe");
 const inputName = document.getElementById("inputName");
 const inputAboutMe = document.getElementById("inputAboutMe");
 

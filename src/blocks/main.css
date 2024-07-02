@@ -41,6 +41,8 @@
 .main-page__content-img-AddButton{
   display: flex;
   justify-content: flex-end;
+  margin: auto;
+  margin-top: 20px;
 }
 
 .main-page__img-AddButton {
@@ -51,4 +53,11 @@
 .button {
   background-color: transparent;
   border: none;
+}
+
+.text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 500px;
 }
