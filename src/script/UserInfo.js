@@ -5,7 +5,6 @@ export default class UserInfo {
     }
 
     getUserInfo(){
-        console.log(this._workSelector)
         return {
             name: this._nameSelector.innerText,
             work: this._workSelector.innerText

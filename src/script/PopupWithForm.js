@@ -24,4 +24,19 @@ export default class PopupWithForm extends Popup {
         form.reset();
         this.close();
     }
+
+    setEventListeners(){
+        const button = this.modal.querySelector("#buttonSaveAvatar");
+
+        if(button){
+            const close = () => this.close();
+            button.addEventListener("click", (evt)=>{
+                evt.preventDefault();
+                this._save().then(()=>{
+                    close();
+                    window.location.reload();
+                });
+            });
+        }
+    }
 }

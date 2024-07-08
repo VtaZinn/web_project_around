@@ -10,6 +10,7 @@
 
 .elements__content{
   width: 282px;
+  position: relative;
 }
 
 .elements__content-container {
@@ -30,7 +31,7 @@
   height: 79px;
   margin: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   font-size: 24px;
   font-family: "Inter Black";
@@ -73,4 +74,27 @@
   position: absolute;
   right: 10px;
   top: 10px;
+  z-index: 1;
+}
+
+.like {
+  font-weight: normal !important;
+  font-size: 15px;
+}
+
+.displayNone {
+  display: none;
+}
+
+.editAvatar{
+  width: 63px;
+  height: 55px;
+  position: absolute;
+  padding: 50px;
+  background-color: rgba(0, 0, 0, 0.719);
+  opacity: 0;
+}
+
+.editAvatar:hover{
+  opacity: 1;
 }

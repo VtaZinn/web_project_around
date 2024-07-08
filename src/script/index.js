@@ -5,7 +5,9 @@ import Popup from "./Popup.js";
 import PopupWithForm from "./PopupWithForm.js";
 import UserInfo from "./UserInfo.js";
 import "../styles/index.css";
+import Api from "../script/Api.js"
 
+const api = new Api();
 
 const buttonClose = document.getElementById("buttonClose");
 buttonClose.addEventListener("click", function(){
@@ -26,6 +28,12 @@ buttonCloseCard.addEventListener("click", function(){
   popup.closeModal();
 })
 
+const buttonCloseAvatar = document.getElementById("buttonCloseAvatar");
+buttonCloseAvatar.addEventListener("click", function(){
+  const popup = new PopupWithForm("#modalAvatar", saveCard);
+  popup.closeModal();
+})
+
 const inputTitleCard = document.getElementById("inputCardTitle");
 const inputLinkImage= document.getElementById("inputLinkImage");
 
@@ -38,6 +46,8 @@ function save(evt) {
     const user = new UserInfo({nameSelector: "#name", workSelector: "#aboutMe"})
     user.setUserInfo(inputName.value,inputAboutMe.value);
     const popup = new PopupWithForm("#modal", save);
+    
+    Promise.resolve(api.setUserInfo(inputName.value, inputAboutMe.value))
     popup.closeModal();
   }
 }
@@ -58,64 +68,56 @@ buttonEdit.addEventListener("click", function(){
 function saveCard(evt) { 
   evt.preventDefault();
   if(inputTitleCard.value != "" && inputLinkImage.value != "") {
-    addCard(inputTitleCard.value, inputLinkImage.value);
+    
     const popup = new Popup("#modalAddCard");
+    Promise.resolve(api.setCard(inputTitleCard.value, inputLinkImage.value)
+    .then((data)=>{
+      return data.json()
+    }).then((card)=>{
+      addCard(card);
+    }));
     popup.close();
   }
 }
 
-function addCard (name, link) {
-  const card = new Card({name: name, link:link}, ".card")
+function addCard (item) {
+  const card = new Card(item, ".card")
   const newCard = card.generateCard();
 
   const elements = document.querySelector(".elements");
   elements.prepend(newCard);
 }
 
+Promise.resolve(api.getUserInfo()).then((userInfo)=>{
+  const nameUser = document.querySelector("#name");
+  nameUser.textContent = userInfo.name;
 
-const initialCards = [
-  {
-    name: "Vale de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg"
-  },
-  {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg"
-  },
-  {
-    name: "Montanhas Carecas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg"
-  },
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg"
-  },
-  {
-    name: "Parque Nacional da Vanoise ",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg"
-  },
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg"
-  }
-];
+  const about = document.querySelector("#aboutMe");
+  about.textContent = userInfo.about;
+
+  const avatar = document.querySelector("#avatar");
+  avatar.src = userInfo.avatar;
+});
 
 
+Promise.resolve(api.getInitialCards()).then(initialCards=>{
+  const cardList = new Section({
+    items: initialCards,
+    renderer: (item) => {
+      const card = new Card(item, ".card");
+      const newCard = card.generateCard();
+      cardList.addItem(newCard);
+    }
+  }, ".elements");
 
-const cardList = new Section({
-  items: initialCards,
-  renderer: (item) => {
-    const card = new Card(item, ".card");
-    const newCard = card.generateCard();
-    cardList.addItem(newCard);
-  }
-}, ".elements");
-
+  cardList.renderer();
+})
 
 const formEdit = document.querySelector(".formEdit");
 formEdit.addEventListener("submit", save);
 const formCard = document.querySelector(".formCard");
 formCard.addEventListener("submit", saveCard);
+
 
 const edit = new FormValidator({
   input1: "#inputName",
@@ -135,7 +137,23 @@ const card = new FormValidator({
 },formCard)
 card.enableValidation();
 
-cardList.renderer();
+function avatarSave(){
+    const avatarLink = document.querySelector("#inputAvatar")
+    return api.setAvatar(avatarLink.value)
+}
+
+const buttonAvatar = document.querySelector(".editAvatar");
+
+buttonAvatar.addEventListener("click", function() {
+  const popup = new PopupWithForm("#modalAvatar", avatarSave);
+  popup.open();
+  popup.setEventListeners();
+})
+
+
+
+
+
 
 
 

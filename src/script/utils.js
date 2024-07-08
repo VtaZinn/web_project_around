@@ -40,4 +40,6 @@ export function openImage (link, name) {
 
 export function likeCard(evt) {
   evt.target.classList.toggle("elements__button-likeBlack");
+  
 }
+

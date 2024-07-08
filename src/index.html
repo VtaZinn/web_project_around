@@ -22,7 +22,10 @@
       <section class="main-page">
         <div class="main-page__content">
           <div class="main-page__photo-avtar">
-            <img src="<%=require('./images/Avatar.png')%>" alt="Foto de perfil">
+            <img src="<%=require('./images/Avatar.png')%>" id="avatar" alt="Foto de perfil" class="avatar">
+          </div>
+          <div class="editAvatar">
+            <img src="<%=require('./images/edit.png')%>" class="main-page__img-EditButton" alt="Botão Editar">
           </div>
           <div>
             <div class="main-page__content-text"> 
@@ -44,13 +47,19 @@
       <section class="elements">
         <template class="card">
           <div class="elements__content">
+            <div class="deleteCard displayNone"></div>
+
             <div class="elements__content-container">
               <img src="<%=require('./images/kirill.jpg')%>" class="elements__content-img">
             </div>
             <div class="elements__content-text">
               <h3>template</h3>
-              <button class="elements__button-like">
-              </button>
+              <div>
+                <button class="elements__button-like">
+                </button>
+                <div class="like" id="numberLike">0</div>
+              </div>
+             
             </div>
           </div>
         </template>
@@ -92,6 +101,38 @@
           <input type="url" placeholder="Link da imagem" class="modal__input-About" id="inputLinkImage" required/>
           <p id="linkImage" class="Alert-text"></p>
           <button type="submit" class="modal__button-save modal__btn-disabled" id="buttonSaveCard" disabled> Salvar </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- DELETAR CARD -->
+  <div class="opacity" id="modalDeleteCard">
+    <div class="content-modal">
+      <button class="buttonClose" id="buttonCloseDelete">
+        <img src="<%=require('./images/CloseIcon.png')%>" alt="Botão Fechar"/>
+      </button>
+      <div class="modal">
+        <form class="formCard form">
+          <h3>Tem certeza?</h3>
+          <button type="submit" class="modal__button-save" id="buttonDelete"> SIM </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- AVATAR -->
+  <div class="opacity" id="modalAvatar">
+    <div class="content-modal">
+      <button class="buttonClose" id="buttonCloseAvatar">
+        <img src="<%=require('./images/CloseIcon.png')%>" alt="Botão Fechar"/>
+      </button>
+      <div class="modal">
+        <form class="formCard form">
+          <h3>Alterar a foto de perfil</h3>
+          <input type="text" placeholder="Link" class="modal__input" id="inputAvatar" required>
+          <p id="localName" class="Alert-text"></p>
+          <button type="submit" class="modal__button-save" id="buttonSaveAvatar"> Salvar </button>
         </form>
       </div>
     </div>
